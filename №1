@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <math.h>
+
+// Функція для обчислення дробу
+double computeFraction() {
+    return (sqrt(8) / sqrt(15)) + (sqrt(35) / sqrt(63)) + (sqrt(48) / sqrt(82)) + (sqrt(24) / sqrt(80));
+}
+
+int main() {
+    int choice;
+    do {
+        printf("Меню:\n");
+        printf("1. Обчислити вираз\n");
+        printf("2. Вийти\n");
+        printf("Введіть ваш вибір: ");
+
+        if (scanf("%d", &choice) != 1) {
+            printf ("Помилка введення даних. Будь ласка, введіть ціле число.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+
+        switch (choice) {
+            case 1:
+                // Обчислення значення через змінну computeFraction
+                printf("Значення виразу: %.4lf\n", computeFraction());
+                break;
+            case 2:
+                printf("Вихід...\n");
+                break;
+            default:
+                printf("Неправильний вибір\n");
+        }
+    } while (choice != 2);
+
+    return 0;
+}
