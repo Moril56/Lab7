@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <math.h>
+
+// Функція для обчислення чисельника
+double calculateNumerator(double a, double b, double c) {
+    return sqrt(a + b + pow(c, 2));
+}
+
+// Функція для обчислення знаменника
+double calculateDenominator(double a, double b, double c) {
+    return sqrt(a + b + pow(c, 2));
+}
+
+int main() {
+    int choice;
+    do {
+        printf("Меню:\n");
+        printf("1. Обчислити вираз\n");
+        printf("2. Вийти\n");
+        printf("Введіть ваш вибір: ");
+
+        if (scanf("%d", &choice) != 1) {
+            printf("Помилка введення даних. Будь ласка, введіть ціле число.\n");
+            while (getchar() != '\n'); // Очищення буфера введення
+            continue;
+        }
+
+        switch (choice) {
+            case 1: {
+                double term1, term2, term3, term4, sum;
+
+                // Обчислення кожного терму окремо
+                term1 = calculateNumerator(2, 2, 2) / calculateDenominator(3, 3, 3);
+                term2 = calculateNumerator(5, 5, 5) / calculateDenominator(7, 7, 7);
+                term3 = calculateNumerator(6, 6, 6) / calculateDenominator(9, 9, 9);
+                term4 = calculateNumerator(4, 4, 4) / calculateDenominator(8, 8, 8);
+
+                // Сума всіх термів
+                sum = term1 + term2 + term3 + term4;
+
+                // Виведення результату
+                printf("Значення виразу: %.4lf\n", sum);
+                break;
+            }
+            case 2:
+                printf("Вихід...\n");
+                break;
+            default:
+                printf("Неправильний вибір\n");
+        }
+    } while (choice != 2);
+
+    return 0;
+}
